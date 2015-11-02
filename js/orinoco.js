@@ -1,7 +1,7 @@
 (function($){
   $(function(){
     Parse.initialize("0LMrk1OPZPyWjo5Y4wShFIOOUbuZUmJU8pXQERoF", "ve3WSaG2pcivyycIbdwKWt25LD4rJdhwnRsjWS6G");
-
+    loadPostDetails();
     $('.button-collapse').sideNav({
       menuWidth: 300
     });
@@ -66,6 +66,29 @@
 })(jQuery); // end of jQuery name space
 
 
+
+function loadPostDetails(){
+
+  var NewsPost = Parse.Object.extend("newsPost");
+  var query = new Parse.Query(NewsPost);
+  query.get("LquHdGsMGc", {
+    success: function(newsPost) {
+      // The object was retrieved successfully.
+      var posttitle = newsPost.get("postTitle");
+      var postHTML = newsPost.get("postHTML");
+      var editor = new wysihtml5.Editor(document.getElementById('editor'));
+          editor.setValue(postHTML);
+          $("#postTitle").val(posttitle);
+    },
+    error: function(object, error) {
+      // The object was not retrieved successfully.
+      // error is a Parse.Error with an error code and message.
+    }
+  });
+
+
+}
+
 $("#btnSavePost").click(function(){
 
   var postTitle = $("#postTitle").val();
@@ -82,6 +105,7 @@ $("#btnSavePost").click(function(){
       newspost.set("postTitle", postTitle);
       newspost.set("postHTML", html);
       newspost.save();
+      swal("Saved!", "Successfully updated news post.", "success")
     }
   });
 })
