@@ -1,0 +1,440 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+
+
+ html, body { height: 100%; width: 100%; margin: 0; }
+ div { height: 100%; width: 100%; }
+
+nav ul a,
+nav .brand-logo {
+  color: #444;
+}
+
+.slick-slide {
+    outline: none
+}
+
+
+
+/* label color */
+ .input-field label {
+   color: #b0813d;
+ }
+
+ .input-field input[type=text]{
+    color:white;
+ }
+ /* label focus color */
+ .input-field input[type=text]:focus + label {
+   color: #b0813d;
+ }
+ /* label underline focus color */
+ .input-field input[type=text]:focus {
+   border-bottom: 1px solid #000;
+   box-shadow: 0 1px 0 0 #000;
+   color:white;
+ }
+
+
+.middleborder{
+  border-left:1px solid #333333;
+  border-right:1px solid #333333;
+}
+
+.topborders{
+  border-top:1px solid #333333;
+}
+
+.instaborder{
+  border-right:1px solid #333333;
+}
+.facebookborder{
+  border-right:1px solid #333333;
+}
+.twitterborder{
+  border-right:1px solid #333333;
+}
+.emailborder{
+  border-left:1px solid #333333;
+  border-right:1px solid #333333;
+}
+
+
+p {
+  line-height: 2rem;
+}
+
+.button-collapse {
+  color: #26a69a;
+}
+
+.fullheight {
+  height: 100vh;
+
+}
+
+.parallax-container {
+
+  line-height: 0;
+  height: 100vh;
+  color: rgba(255,255,255,.9);
+}
+.parallax-container .section {
+    width: 100%;
+}
+
+.StoryTile{
+  background: linear-gradient(rgba(96, 77, 56, 0.9), rgba(96, 77, 56, 0.9)), url(https://upload.wikimedia.org/wikipedia/commons/5/54/Tobacco_field_cuba1.jpg);
+  background-size: cover;
+}
+.StoryTile:hover{
+  background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url(https://upload.wikimedia.org/wikipedia/commons/5/54/Tobacco_field_cuba1.jpg);
+  background-size: cover;
+}
+
+.FamilyTile{
+  background: linear-gradient(rgba(4, 3, 3, 0.8), rgba(4, 3, 3, 0.8)), url(http://www.smokemag.com/0605/qa1.jpg);
+  background-size: cover;
+}
+.FamilyTile:hover{
+  background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url(http://www.smokemag.com/0605/qa1.jpg);
+  background-size: cover;
+}
+
+.InspirationTile{
+  background: linear-gradient(rgba(4, 3, 3, 0.8), rgba(4, 3, 3, 0.8)), url(http://www.onehundredmain.com/images/CharlesMorgan.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y:70%;
+}
+.InspirationTile:hover{
+  background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url(http://www.onehundredmain.com/images/CharlesMorgan.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y:70%;
+}
+
+.PhotosTile{
+  background: linear-gradient(rgba(4, 3, 3, 0.8), rgba(4, 3, 3, 0.8)), url(http://st.depositphotos.com/1814366/1503/i/950/depositphotos_15038481-Business-collage.jpg);
+  background-size: cover;
+}
+.PhotosTile:hover{
+  background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url(http://st.depositphotos.com/1814366/1503/i/950/depositphotos_15038481-Business-collage.jpg);
+  background-size: cover;
+}
+
+.EventsTile{
+  background: linear-gradient(rgba(96, 77, 56, 0.9), rgba(96, 77, 56, 0.9)), url(  http://s3-media2.fl.yelpcdn.com/bphoto/E2Wj7KgoDASRzroJ0MmHJw/o.jpg);
+  background-size: cover;
+}
+.EventsTile:hover{
+  background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url(  http://s3-media2.fl.yelpcdn.com/bphoto/E2Wj7KgoDASRzroJ0MmHJw/o.jpg);
+  background-size: cover;
+}
+
+.tiletext{
+  color:white;
+
+}
+
+
+
+.basicPageContent{
+  color:black;
+  font-family: 'freight-big-pro';
+  font-weight:400;
+  font-size:large;
+  text-align: left;
+}
+.basicPageContent2{
+  color:black;
+  font-family: 'freight-big-pro';
+  font-weight:400;
+  font-size:large;
+  text-align: left;
+}
+
+.tiles{
+  height:50%;
+}
+
+.lineUnder_white{
+  width:20px;height:2px;background-color:#b0813d;border:none;margin-top:0px;
+}
+.lineUnder_white2{
+  width:130px;height:2px;background-color:#b0813d;border:none;margin-top:10px;
+}
+.lineUnder_white3{
+  width:100%;height:1px;background-color:white;border:none;margin-top:20px;
+}
+
+
+.navlinks:hover{
+  color:white;
+}
+
+.navlinky:hover{
+  color:#b0813d;
+}
+.navlinky{
+  color:white;
+}
+
+.btnLight{
+      background-color:rgba(156,156,156,0.15);color:black;border-radius: 0px;border: 1px solid rgba(156,156,156,0.15);border-left:none;border-right:none;box-shadow: none;
+}
+.btnLight:hover{
+    background-color:#ececec;
+    box-shadow: none;
+}
+
+.btnRed{
+      background-color:rgba(231, 76, 60,0.9);color:white;border-radius: 0px;border: 1px solid rgba(156,156,156,0.15);border-left:none;border-right:none;box-shadow: 10px;
+}
+.btnRed:hover{
+    background-color:#ececec;
+    color:black;
+    box-shadow: 40px;
+}
+
+
+
+.btnDark{
+      background-color:rgba(0,0,0,0.2);color:black;border-radius: 0px;border: 1px solid rgba(0,0,0,0.2);border-left:none;border-right:none;box-shadow: none;
+}
+.btnDark:hover{
+    background-color:#ececec;
+    box-shadow: none;
+}
+
+
+
+.orinocoButton_light {
+    background-color:rgba(156,156,156,0.15);
+    color:black;
+    padding-left: 10px;
+    padding-right:10px;
+
+    font-weight: normal;
+    font-style: normal;
+
+    border:3px double rgba(156,156,156,0.15);
+    border-left: none;
+    border-right: none;
+
+
+    text-decoration: none;
+    text-transform: uppercase;
+
+
+  }
+
+  #mainheadline{
+    margin-top: 10%;
+  }
+
+  #menupoper{
+  margin-left:44%;
+  }
+
+
+  .logoimage{
+    margin-top:15%;
+    margin-left: 7%;
+    height:16%;
+  }
+
+  .SusanB_logoimage{
+    margin-top: 15%;
+    height:13%;
+    margin-left:7%;
+  }
+  .F4_logoimage{
+    margin-top: 15%;
+    height:17%;
+    margin-left:6%;
+  }
+  .godspeed_logoimage{
+    margin-top: 15%;
+    height:17%;
+    margin-left:6%;
+  }
+  .blackbird_logoimage{
+    margin-top: 15%;
+    height:19%;
+    margin-left:5%;
+  }
+
+  .discovery_logoimage{
+    margin-top: 15%;
+    height:20%;
+    margin-left:6%;
+  }
+
+  .cigarimages{
+    margin-top:80%;
+    height:100%;
+  }
+
+  .f4_cigarimages{
+    margin-top:95%;
+    height:100%;
+  }
+
+  .susanb_cigarimages{
+    margin-top:95%;
+    height:100%;
+  }
+
+  .discover_cigarimages{
+    margin-top:95%;
+    height:100%;
+  }
+
+  .singleCigarImage{
+    margin-top:0%;
+    height:100%;
+  }
+
+  .cigarTitleImage{
+      height:10%;
+  }
+
+
+@media only screen and (max-width : 992px) {
+
+  .logoimage{
+    margin-top:5%;
+    height:15%;
+  }
+
+  .cigarimages{
+    margin-top:35%;
+    height:45%;
+  }
+
+  #mainheadline{
+    margin-top: 25%;
+  }
+
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
+  }
+  .middleborder{
+    border-left:1px solid #333333;
+    border-right:none;
+    border-top:none;
+    border-bottom:none;
+  }
+  .emailborder{
+    border-left:1px solid #333333;
+    border-right:none;
+    border-top:1px solid #333333;
+    border-bottom:1px solid #333333;
+  }
+  .contactborder{
+    border-bottom:1px solid #333333;
+  }
+}
+
+
+
+@media screen and (min-width:1920px) {
+
+  .logoimage{
+    margin-top:20%;
+    height:10%;
+  }
+
+
+}
+
+#newstitle{
+  text-align: center;
+}
+
+
+#photoloader{
+  max-height:60%;min-height:60%
+}
+
+@media only screen and (max-width : 600px) {
+
+.cigarTitleImage{
+  margin-top: 15%;
+}
+
+  #photoloader{
+    max-height:50%;min-height:50%
+  }
+
+  .logoimage{
+    margin-top:65%;
+    height:7.5%;
+  }
+
+  .cigarimages{
+    margin-top: 150px;
+    height:70%;
+  }
+
+  .singleCigarImage{
+    margin-top:50px;
+    height:70%;
+  }
+
+  #menupoper{
+  margin-left:37%;
+  }
+
+  #mainheadline {
+    margin-top:55%;
+  }
+
+  #index-banner .section {
+    top: 0;
+  }
+  .middleborder{
+    border-left:none;
+    border-right:none;
+    border-top:1px solid #333333;
+    border-bottom:none;
+  }
+  .emailborder{
+    border-left:none;
+    border-right:none;
+    border-top:1px solid #333333;
+    border-bottom:1px solid #333333;
+  }
+  .contactborder{
+    border-bottom:none;
+  }
+  .tiles{
+    height:25%;
+  }
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+footer.page-footer {
+  margin: 0;
+}
+
+.footerboxes{
+  box-sizing:border-box;
+}
