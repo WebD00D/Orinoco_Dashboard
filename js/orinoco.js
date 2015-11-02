@@ -1,5 +1,7 @@
 (function($){
   $(function(){
+    Parse.initialize("0LMrk1OPZPyWjo5Y4wShFIOOUbuZUmJU8pXQERoF", "ve3WSaG2pcivyycIbdwKWt25LD4rJdhwnRsjWS6G");
+
     $('.button-collapse').sideNav({
       menuWidth: 300
     });
@@ -64,6 +66,25 @@
 })(jQuery); // end of jQuery name space
 
 
+$("#btnSavePost").click(function(){
+
+  var postTitle = $("#postTitle").val();
+  var editor = new wysihtml5.Editor(document.getElementById('editor'));
+  var html = editor.getValue();
+  // Create the object.
+  var NewsPost = Parse.Object.extend("newsPost");
+  var newspost = new NewsPost();
+  newspost.id = "LquHdGsMGc";
+  newspost.save(null, {
+    success: function(newspost) {
+    // Now let's update it with some new data. In this case, only cheatMode and score
+    // will get sent to the cloud. playerName hasn't changed.
+      newspost.set("postTitle", postTitle);
+      newspost.set("postHTML", html);
+      newspost.save();
+    }
+  });
+})
 
 
 $("#previousSlide").click(function(e){
@@ -162,7 +183,5 @@ function animate() {
         $("#menuitem").addClass("fa fa-bars");
         $("#menucontent").hide();
     }
-
-
 
 });

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Orinoco | Shop Management</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons"  type="text/css" rel="stylesheet" media="screen,projection">
+  <link  href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection">
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.7/slick.css"/>
+  <link href="css/orinoco.css" type="text/css" rel="stylesheet" media="screen,projection">
+
+  <script src="https://use.typekit.net/xco3jnl.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  <style type="text/css">
+  div:focus, input:focus{
+    outline: 0;
+
+  }
+  .input-field input[type=text]{
+     color:black;
+  }
+  </style>
+ </head>
+ <body>
+
+
+
+   <nav style='background-color:rgba(01,01,01,0.8)'>
+   <div class="nav-wrapper">
+     <a href="#" class="brand-logo right hide-on-small-only" style="padding-top:0px">
+         <img  height="140px" style="margin-right:30px" src="https://lh3.googleusercontent.com/e9tScfJK9NufWuzSEw-SmIxeUZE4T9LX1g51EvYB_vepOQ7GdxOuJw6F0FGnHXynzKogouNMTS0upmAdfa5Y0hKSOZg5zdhfSE2mi7koRfi2tEaSFxlmxZ507wv3NsnqtNOsbm_dTml0jFcCPDT1D1sSNLX6C7ffmrIas2kSbH5gzg3yBT3-EbMOR7WRmyyhP8eVvSR7Y698jTu9gs1uBDkLJZ3ZP9cjIVUNMNsmyncvFWDDp6CTT34ZahkGUjtxT7P-2oINyeUVf-Ta-BKUtXyVETXLQl6C2jXiyJJh-Urk5Dh1pgkykRRSDB8F3egUC1ZmKGM_suiI4hAVH7tbIsmgnyKqAXn12pHOK2ht2GFIoDMFfOorNaH3HLjQ0kpT1dkUpw0KEv7Qpkuyb7OII8DR9-O31gs8GtkKnZBW_Ze7KFOlgsVnAiYPeG53eyqa-P6VXp9Jq7sgE7VIUoj-ymb6yozB0wblDTQguVMZq64jjfSr1ZjDRuFnQCwY6pZSVzrPWr8IOY5wX-0LZ-MvkDLL7v_XoKaRPOF58bGYF_M=w621-h276-no">
+     </a>
+     <a href="#" class="brand-logo left hide-on-small-only" style='padding-top:20px;margin-left:80px'>
+       <h5 style="font-family:'freight-big-pro';margin:0px;font-style:italic;color:#b0813d">News Post</h5>
+     </a>
+
+     <a href="#" class="brand-logo center hide-on-med-and-up">
+       <img  height="100px" class=" hide-on-med-and-up" src="https://lh3.googleusercontent.com/e9tScfJK9NufWuzSEw-SmIxeUZE4T9LX1g51EvYB_vepOQ7GdxOuJw6F0FGnHXynzKogouNMTS0upmAdfa5Y0hKSOZg5zdhfSE2mi7koRfi2tEaSFxlmxZ507wv3NsnqtNOsbm_dTml0jFcCPDT1D1sSNLX6C7ffmrIas2kSbH5gzg3yBT3-EbMOR7WRmyyhP8eVvSR7Y698jTu9gs1uBDkLJZ3ZP9cjIVUNMNsmyncvFWDDp6CTT34ZahkGUjtxT7P-2oINyeUVf-Ta-BKUtXyVETXLQl6C2jXiyJJh-Urk5Dh1pgkykRRSDB8F3egUC1ZmKGM_suiI4hAVH7tbIsmgnyKqAXn12pHOK2ht2GFIoDMFfOorNaH3HLjQ0kpT1dkUpw0KEv7Qpkuyb7OII8DR9-O31gs8GtkKnZBW_Ze7KFOlgsVnAiYPeG53eyqa-P6VXp9Jq7sgE7VIUoj-ymb6yozB0wblDTQguVMZq64jjfSr1ZjDRuFnQCwY6pZSVzrPWr8IOY5wX-0LZ-MvkDLL7v_XoKaRPOF58bGYF_M=w621-h276-no">
+   </a>
+   <a href="#" style="margin-left:15px" data-activates="mobile-demo" class="button-collapse  show-on-large"><i style='color:#b0813d' class="material-icons">menu</i></a>
+
+   <!--  <ul id="nav-mobile" class="left hide-on-med-and-down" style="color:white;font-family:'freight-big-pro'">
+       <li><a class='navlinks' href="Cigars.html" style="color:#b0813d">Cigars</a></li>
+       <li><a class='navlinks' href="story.html" style="color:#b0813d"> Story</a></li>
+       <li><a class='navlinks' href="events.html" style="color:#b0813d">Events</a></li>
+       <li><a class='navlinks' href="family.html" style="color:#b0813d"> Family</a></li>
+       <li><a class='navlinks' href="photos.html" style="color:#b0813d">Photos</a></li>
+     </ul> -->
+   </div>
+ </nav>
+ <ul class="side-nav" id="mobile-demo" style="background-color:black;font-family:'freight-big-pro';font-size:x-large">
+   <li><a class='navlinks' href="home.html" style="color:#b0813d;font-size:30px">Home</a></li>
+   <li><a class='navlinks' href="newspost.html" style="color:#b0813d;font-size:30px">News Post</a></li>
+   <li><a class='navlinks' href="shops.html" style="color:#b0813d;font-size:30px"> Shops</a></li>
+   <li><a class='navlinks' href="photos.html" style="color:#b0813d;font-size:30px">Photos</a></li>
+   <li><a class='navlinks' href="events.html" style="color:#b0813d;font-size:30px"> Events</a></li>
+
+   <hr style="background-color:#b0813d;height:1px;border:none;">
+   <li><a class='navlinks' href="photos.html" style="color:#b0813d;font-size:30px">Sign Out</a></li>
+   </ul>
+
+  <div id="allTheContent" class="fullheight" >
+    <div class="row">
+
+            <div class="col s12" style="padding:0px;background-color:white;">
+                <div class="row" style="padding-top:30px" >
+                  <div class="input-field col l8 offset-l2 s12">
+                    <input placeholder="Please specify a title for your news post." id="postTitle" type="text" class="validate">
+                    <label for="postTitle">Post Title</label>
+                  </div>
+                  <div class="col l8 offset-l2">
+                    <!-- toolbar with suitable buttons and dialogues -->
+                    <div id="toolbar" style="margin-top:10px">
+                      <a class="btn" style="background-color:#eeeeee;color:black" data-wysihtml5-command="bold"><i class="fa fa-bold center"></i></a>
+                      <a class="btn" style="background-color:#eeeeee;color:black" data-wysihtml5-command="italic"><i class="fa fa-italic center"></i></a>
+                      <a class="btn" style="background-color:#eeeeee;color:black" data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="p"><i class="fa fa-paragraph center"></i></a>
+                      <a class="btn" style="background-color:#eeeeee;color:black" data-wysihtml5-command="insertOrderedList"><i class="fa fa-list-ol center"></i></a>
+
+                      <a class="btn" style="background-color:#eeeeee;color:black" data-wysihtml5-command="underline"><i class="fa fa-underline center"></i></a>
+
+                    </div>
+
+                    <!-- element to edit -->
+                    <div id="editor" style="border:1px solid #EEEEEE;padding:10px;margin-top:25px;min-height:300px" data-placeholder="Click here to edit..."></div>
+                    <br>
+                    <a id="btnSavePost" class="btn green darken-4">Update & Save</a>
+
+                  </div>
+                </div>
+            </div>
+
+
+
+
+    </div>
+  </div>
+
+
+               <footer class="page-footer brown" style="padding:0px">
+
+                   <div class="row" style="margin-bottom:0px">
+                     <!--top section-->
+                     <div class="col l4 m6 s12  footerboxes" style="padding:0px;background-color:#222222">
+                       <div class="col s12 ">
+                          <h6 style="font-family:'freight-big-pro'" class="white-text">Contact</h6>
+                       </div>
+                       <div class="col l12 s12 topborders contactborder" style="max-height:75px;min-height:75px;background-color:#222222;padding-top:3px;color:#b0813d;font-family:'freight-big-pro'">
+                          Orinoco 1613
+                          <Br>
+                          +1 804-555-5555
+                          <Br>
+                          Hello@OrinocoCigars.com
+
+
+
+                       </div>
+
+                     </div>
+                     <div class="col l5 m6 s12  footerboxes" style="padding:0px;background-color:#222222">
+                       <div class="col s12 middleborder">
+                          <h6 style="font-family:'freight-big-pro'" class="white-text">News Letter</h6>
+                       </div>
+
+                       <div class="col l12 s12 topborders emailborder" style="max-height:75px;min-height:75px;background-color:#222222;font-family:'freight-big-pro'">
+
+                         <div class="input-field col s12 " >
+                           <input id="email2" type="text" >
+                           <label class="active" for="email2">Email</label>
+                        </div>
+
+                       </div>
+                     </div>
+                     <div class="col l3 s12 footerboxes" style="padding:0px;background-color:#222222">
+                       <div class="col s12 ">
+                          <h6 style="font-family:'freight-big-pro'" class="white-text">Social</h6>
+                       </div>
+                       <div class="col l12 s12  center-align" style="max-height:75px;min-height:75px;padding:0px">
+                          <div class="col l3 s3 topborders instaborder  center-align" style="max-height:75px;min-height:75px;padding-top:22px;background-color:#222222">
+                              <i style="color:#b0813d" class="fa fa-instagram fa-2x "></i>
+                          </div>
+                          <div class="col l3 s3 topborders facebookborder  center-align" style="max-height:75px;min-height:75px;padding-top:22px;background-color:#222222">
+                              <i style="color:#b0813d" class="fa fa-facebook fa-2x"></i>
+                          </div>
+                          <div class="col l3 s3 topborders twitterborder center-align" style="max-height:75px;min-height:75px;padding:23px;background-color:#222222">
+
+                              <i style="color:#b0813d" class="fa fa-twitter fa-2x "></i>
+                          </div>
+                          <div class="col l3 s3 topborders center-align" style="max-height:75px;min-height:75px;padding:23px;background-color:#222222">
+
+                              <i style="color:#b0813d" class="fa fa-vimeo fa-2x "></i>
+                          </div>
+                       </div>
+                     </div>
+
+
+                   </div>
+
+                 <div class="footer-copyright center-align" style="background-color:black;font-size:12px;font-family:'freight-big-pro'">
+
+                   Handcrafted with <i style="font-size:12px" class="material-icons red-text">favorite</i> by <a class="white-text text-lighten-3" href="http://www.laboremedge.com">Laborem Edge</a>
+
+                 </div>
+
+               </footer>
+
+
+
+
+
+
+   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+   <script src="//www.parsecdn.com/js/parse-1.6.7.min.js"></script>
+   <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.5.7/slick.min.js"></script>
+   <script src="js/wysihtml-toolbar.min.js"></script>
+   <script src="js/advanced_and_extended.js"></script>
+   <script src="js/orinoco.js"></script>
+   <script>
+  var editor = new wysihtml5.Editor('editor', {
+    toolbar: 'toolbar',
+    parserRules:  wysihtml5ParserRules
+  });
+</script>
+
+
+
+ </body>
+</html>
