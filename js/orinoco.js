@@ -91,6 +91,7 @@ $(".anOrinocoCigar").mouseout(function(){
   $(this).css("cursor","pointer");
   $(this).css("background-color","rgba(255,255,255,0.0)");
 })
+
 $(".anOrinocoCigar").click(function(e){
   e.preventDefault();
   var goTo = $(this).attr('data-page');
