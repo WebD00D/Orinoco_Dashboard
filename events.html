@@ -71,7 +71,7 @@
                   <div class="col l8 offset-l2">
 
 
-    <div id="allEventsTemplate" class="hide">
+    <div id="allEventsTemplate">
       <table>
         <thead>
           <tr>
@@ -83,14 +83,8 @@
           </tr>
         </thead>
 
-        <tbody>
-          <tr>
-            <td>11-04-2015</td>
-            <td>Winstons Humidor</td>
-            <td>Midlothian, Virginia</td>
-            <td><a href="#" class="editpost"</a><i class="edit fa fa-edit"></i> Edit</td>
-            <td><a href="#" class="deletepost"</a><i class="delete fa fa-times"></i> Delete</td>
-          </tr>
+        <tbody id="eventTableBody">
+
 
         </tbody>
       </table>
@@ -132,7 +126,43 @@
           </div>
         </div>
 
+      </div>
 
+      <div id="EditEventTemplate">
+        <div class="row">
+          <div class="input-field col l12 s12">
+            <input placeholder="Name of the event" id="eventName_edit" type="text" class="validate">
+            <label for="eventName_new">Event Name</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col l6 s12">
+            <input placeholder="Where will the event be hosted?" id="eventVenue_edit" type="text" class="validate">
+            <label for="eventVenue_new">Venue</label>
+          </div>
+          <div class="input-field col l6 s12">
+            <input placeholder="Address of the venue" id="eventAddress_edit" type="text" class="validate">
+            <label for="eventAddress_new">Address</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col l6 s12">
+            <label style="font-size:12px">Event Date</label>
+            <Br>
+            <input id="eventDate_edit" type="date" class="validate">
+          </div>
+          <div class="input-field col l6 s12">
+            <label style="font-size:12px">Event Time</label>
+            <Br>
+            <input id="eventTime_edit" type="time" class="validate">
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col l12 s12">
+            <input placeholder="Brief description of the event" id="eventDescription_edit" type="text" class="validate">
+            <label for="eventDescription_edit">Event Description</label>
+          </div>
+        </div>
 
       </div>
 
@@ -140,7 +170,9 @@
       <div class="actionButtons">
         <div class="row">
           <div class="col l12 s12">
-            <a id="btnCreateNewEvent" class="btn grey darken-4">Cancel</a>
+            <a id="btnViewAllEvents" class="btn grey darken-4">Go Back</a>
+            <a id="btnSaveEvent" class="btn green darken-4">Save Event</a>
+            <a id="btnEditEvent" class="btn green darken-4">Update Event</a>
             <a id="btnCreateNewEvent" class="btn green darken-4">Add Event</a>
           </div>
         </div>
