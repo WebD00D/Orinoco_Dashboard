@@ -3,6 +3,7 @@
     Parse.initialize("0LMrk1OPZPyWjo5Y4wShFIOOUbuZUmJU8pXQERoF", "ve3WSaG2pcivyycIbdwKWt25LD4rJdhwnRsjWS6G");
     loadPostDetails();
     loadAllEvents();
+    loadAllImages();
     $('.button-collapse').sideNav({
       menuWidth: 300
     });
@@ -327,9 +328,6 @@ function loadAllEvents(){
   //      <td><a href="#" class="deletepost"</a><i class="delete fa fa-times"></i> Delete</td>
   //    </tr>
 
-
-
-
     },
     error: function(error) {
       alert("Error: " + error.code + " " + error.message);
@@ -338,6 +336,76 @@ function loadAllEvents(){
 
 }
 
+function loadAllImages(){
+
+  var Photos = Parse.Object.extend("Photos");
+  var query = new Parse.Query(Photos);
+    query.descending("createdAt");
+    query.find({
+      success: function(results) {
+
+        $("#photoTableBody").empty();
+        // Do something with the returned Parse.Object values
+        var photoHTML;
+        for (var i = 0; i < results.length; i++) {
+          var object = results[i];
+
+          var Photo = object.get("Photo");
+          var PhotoURL = Photo.url();
+          var photoName = Photo.name().split("-").pop();
+          var photoDate = object.get('createdAt');
+          var photoCaption = object.get('Caption');
+
+          var dateStamp = new Date(photoDate);
+          var month = dateStamp.getMonth() + 1
+          var day = dateStamp.getDate() + 1;
+          var year = dateStamp.getFullYear();
+          var formattedDate = month + "-" + day + "-" + year;
+
+          //alert(object.id + ' - ' + object.get('EventName'));
+          photoHTML += "<tr> <td>"+ formattedDate +"</td> " +
+                       " <td>"+ photoName +"</td> " +
+                       " <td><a style='color:black' href='#' data-photourl="+ PhotoURL +" data-photo="+ object.id +" class='viewimage'</a><i style='color:green' class='edit fa fa-eye'></i> View</td> "
+
+        }
+
+        $('#photoTableBody').append(photoHTML);
+
+    //    <tr>
+    //      <td>11-04-2015</td>
+    //      <td>Winstons Humidor</td>
+    //      <td>Midlothian, Virginia</td>
+    //      <td><a href="#" class="editpost"</a><i class="edit fa fa-edit"></i> Edit</td>
+    //      <td><a href="#" class="deletepost"</a><i class="delete fa fa-times"></i> Delete</td>
+    //    </tr>
+
+      },
+      error: function(error) {
+        alert("Error: " + error.code + " " + error.message);
+      }
+    });
+
+}
+
+
+$("#photoTableBody").delegate(".viewimage","click",function(e){
+  e.preventDefault();
+  var image = $(this).attr('data-photo');
+  var imageURL = $(this).attr('data-photourl');
+  $('#imgsrc2').attr('src', imageURL);
+  $("#btnDeleteImage").attr('data-img',image);
+  $("#btnUpdateImage").attr('data-img',image);
+})
+
+$("#btnDeleteImage").click(function(){
+  var image = $(this).attr('data-img');
+  alert(image);
+})
+
+$("#btnUpdateImage").click(function(){
+  var image = $(this).attr('data-img');
+  alert(image);
+})
 
 $("#eventTableBody").delegate(".editpost","click",function(){
   var post = $(this).attr('data-event');
