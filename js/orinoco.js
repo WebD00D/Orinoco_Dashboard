@@ -395,16 +395,20 @@ $("#photoTableBody").delegate(".viewimage","click",function(e){
   $('#imgsrc2').attr('src', imageURL);
   $("#btnDeleteImage").attr('data-img',image);
   $("#btnUpdateImage").attr('data-img',image);
+  $("#btnDeleteImage").attr('data-photourl',imageURL);
+  $("#btnUpdateImage").attr('data-photourl',imageURL);
 })
 
 $("#btnDeleteImage").click(function(){
   var image = $(this).attr('data-img');
-  alert(image);
+
 })
 
 $("#btnUpdateImage").click(function(){
   var image = $(this).attr('data-img');
-  alert(image);
+  var imageurl = $(this).attr('data-photourl')
+  var splitstring = imageurl.substring(imageurl.lastIndexOf("/")+1);
+  deleteFile(splitstring);
 })
 
 $("#eventTableBody").delegate(".editpost","click",function(){
@@ -508,3 +512,14 @@ $("#btnEditEvent").click(function(){
     });
 
 })
+
+function deleteFile(img){
+
+  Parse.Cloud.run('removeFile', { image: img }, {
+  success: function(result) {
+    // ratings should be 4.5
+  },
+  error: function(error) {
+  }
+});
+}
