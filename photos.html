@@ -74,7 +74,7 @@
                     <div class="input-field col l8 offset-l2 s12">
 
                       <div class="col l6">
-                          <a style="margin-left:12px" id="btnUploadNewImage" class="btn black center-align ">New Image</a>
+                          <a style="margin-left:12px" id="btnAUploadNewImage" class="btn black center-align ">New Image</a>
                           <a href="#" class="scrollUp btn black"><i class="fa fa-chevron-up"></i></a>
                           <a href="#" class="scrollDown btn black "><i class="fa fa-chevron-down"></i></a>
                         <div id="photoTableContainer" style="height:500px;overflow:auto;">
@@ -109,10 +109,7 @@
                             <input placeholder="Please add a caption for your image" maxlength="90" id="NewphotoCaption" type="text" length="90" class="validate">
                             <label  for="postTitle">Photo Caption</label>
                           </div>
-                          <div class="input-field col s12">
-                            <input placeholder="Please add a name for your image" maxlength="40" id="NewphotoName" type="text" length="40" class="validate">
-                            <label for="postTitle">Photo Name</label>
-                          </div>
+
                         <Br>
                         <a style="margin-left:12px" id="btnDeleteImage" class="btn red darken-4 ">Delete</a>
                         <a id="btnUpdateImage" class="btn green darken-4 ">Update</a>
@@ -149,6 +146,7 @@
                         <Br>
                         <Br>
                         <a id="btnImportImage" class="btn green darken-4 ">Import Image</a>
+                        <a id="btnbackToImage" class="btn black darken-4 ">Cancel</a>
                     </div>
 
                   </div> <!--end upload photo section-->
@@ -256,6 +254,15 @@
       document.getElementById('photoTableContainer').scrollTop += 15;
     })
 
+    $("#btnAUploadNewImage").click(function(){
+      $("#section_uploadphoto").show();
+      $("#section_editphotosection").hide()
+    })
+
+    $("#btnbackToImage").click(function(){
+      $("#section_uploadphoto").hide();
+      $("#section_editphotosection").show()
+    })
 
 
     $("#section_uploadphoto").hide();

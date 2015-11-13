@@ -4,6 +4,7 @@
     loadPostDetails();
     loadAllEvents();
     loadAllImages();
+    loadAllShops();
     $('.button-collapse').sideNav({
       menuWidth: 300
     });
@@ -20,6 +21,10 @@
 
    $("#inquiryForm").hide();
    $("#shopDetailsForm").hide();
+
+   $("#section_ManageAllShops").show();
+   $("#section_AddNewShop").hide();
+   $("#section_EditShop").hide();
 
    $("#createNewEventTemplate").hide();
    $("#EditEventTemplate").hide();
@@ -72,6 +77,47 @@
   }); // end of document ready
 })(jQuery); // end of jQuery name space
 
+$("#btnGoAddNewShop").click(function(){
+  $("#section_ManageAllShops").hide();
+  $("#section_AddNewShop").show();
+})
+
+$("#btnBackToAllShops").click(function(){
+  $("#section_ManageAllShops").show();
+  $("#section_AddNewShop").hide();
+})
+
+function clearNewShopForm(){
+  $("#shopName").val('');
+  $("#shopPhone").val('');
+  $("#shopAddress").val('');
+}
+
+$("#btnAddNewShop").click(function(){
+
+  var StateSelected = $("#ddlNewShopState option:selected").text();
+  var Shop = Parse.Object.extend("Shops");
+  var shop = new Shop();
+  shop.set("shopName",$("#shopName").val());
+  shop.set("Phone",$("#shopPhone").val());
+  shop.set("streetAddress",$("#shopAddress").val());
+  shop.set("shopState",StateSelected);
+
+  shop.save(null, {
+    success: function(shop) {
+      // Execute any logic that should take place after the object is saved.
+      swal("Saved!", "Successfully saved shop.", "success")
+      clearNewShopForm();
+    },
+    error: function(shop, error) {
+      // Execute any logic that should take place if the save fails.
+      // error is a Parse.Error with an error code and message.
+      console.log('Failed to create new object, with error code: ' + error.message);
+      swal("Error!", error.message, "error");
+    }
+  });
+
+})
 
 
 function loadPostDetails(){
@@ -336,10 +382,133 @@ function loadAllEvents(){
 
 }
 
-function loadAllImages(){
+function loadAllShops(){
+  $("#section_ManageAllShops").show();
+  $("#section_AddNewShop").hide();
+  $("#section_EditShop").hide();
+  var Shops = Parse.Object.extend("Shops");
+  var query = new Parse.Query(Shops);
+    query.find({
+      success: function(results) {
 
+        $("#shopTableBody").empty();
+        // Do something with the returned Parse.Object values
+        var shopHTML;
+        for (var i = 0; i < results.length; i++) {
+          var object = results[i];
+          var shopName = object.get("shopName");
+          var shopPhone = object.get("Phone");
+          var street = object.get("streetAddress");
+          var shopState = object.get("shopState");
+
+          shopHTML += "<tr> <td>"+ shopName +"</td> " +
+                       " <td>"+ shopState +"</td> " +
+                       " <td>"+ shopPhone +"</td> " +
+                       " <td>"+ street +"</td> " +
+                       " <td><a style='color:black' href='#' data-state='"+ shopState +"' data-street='"+ street +"' data-name='"+ shopName +"' data-phone='"+ shopPhone +"' data-who="+ object.id +" class='viewshop'</a><i style='color:green' class='edit fa fa-eye'></i> View</td> "
+
+        }
+
+        $('#shopTableBody').append(shopHTML);
+
+    //    <tr>
+    //      <td>11-04-2015</td>
+    //      <td>Winstons Humidor</td>
+    //      <td>Midlothian, Virginia</td>
+    //      <td><a href="#" class="editpost"</a><i class="edit fa fa-edit"></i> Edit</td>
+    //      <td><a href="#" class="deletepost"</a><i class="delete fa fa-times"></i> Delete</td>
+    //    </tr>
+
+      },
+      error: function(error) {
+        alert("Error: " + error.code + " " + error.message);
+      }
+    });
+
+}
+
+$("#shopTableBody").delegate(".viewshop","click",function(){
+
+  $("#section_ManageAllShops").hide();
+  $("#section_AddNewShop").hide();
+  $("#section_EditShop").show();
+
+  var name = $(this).attr('data-name');
+  var state = $(this).attr('data-state');
+  var phone = $(this).attr('data-phone');
+  var street = $(this).attr("data-street");
+  var who = $(this).attr('data-who');
+
+  $("#EditshopName").val(name);
+  $("#EditshopPhone").val(phone);
+  $("#EditshopAddress").val(street);
+
+  $("#btnDeleteShop").attr('data-who',who);
+  $("#btnUpdateShop").attr('data-who',who);
+
+});
+
+
+$("#btnGoBackToAllShops").click(function(){
+  loadAllShops();
+})
+
+$("#btnUpdateShop").click(function(){
+  var who = $(this).attr('data-who');
+  var Shop = Parse.Object.extend("Shops");
+  var shop = new Shop();
+  shop.id = who;
+  shop.save(null, {
+    success: function(shop) {
+      shop.set("shopName", $("#EditshopName").val());
+      shop.set("Phone", $("#EditshopPhone").val());
+      shop.set("streetAddress", $("#EditshopAddress").val());
+      shop.save();
+      loadAllShops();
+      swal("Saved!", "Successfully updated shop.", "success");
+
+    }
+  });
+
+})
+
+$("#btnDeleteShop").click(function(){
+  var who = $(this).attr('data-who');
+  swal({   title: "Are you sure?",
+           text: "You will not be able to undo this action!",
+           type: "warning",
+           showCancelButton: true,
+           confirmButtonColor: "#DD6B55",
+           confirmButtonText: "Yes, delete it!",
+           closeOnConfirm: false }, function(){
+
+             var Shop = Parse.Object.extend("Shops");
+             var shop = new Shop();
+             shop.id = who;
+             shop.destroy({
+               success: function(eventPost) {
+                 // The object was deleted from the Parse Cloud.
+                 loadAllShops();
+                 swal("Deleted!", "Event has been deleted.", "success");
+               },
+               error: function(eventPost, error) {
+                 // The delete failed.
+                 // error is a Parse.Error with an error code and message.
+               }
+             });
+
+
+              });
+
+})
+
+
+
+
+function loadAllImages(){
   var Photos = Parse.Object.extend("Photos");
   var query = new Parse.Query(Photos);
+    query.equalTo("isDeleted", false);
     query.descending("createdAt");
     query.find({
       success: function(results) {
@@ -349,23 +518,20 @@ function loadAllImages(){
         var photoHTML;
         for (var i = 0; i < results.length; i++) {
           var object = results[i];
-
           var Photo = object.get("Photo");
           var PhotoURL = Photo.url();
           var photoName = Photo.name().split("-").pop();
           var photoDate = object.get('createdAt');
           var photoCaption = object.get('Caption');
-
           var dateStamp = new Date(photoDate);
           var month = dateStamp.getMonth() + 1
           var day = dateStamp.getDate() + 1;
           var year = dateStamp.getFullYear();
           var formattedDate = month + "-" + day + "-" + year;
 
-          //alert(object.id + ' - ' + object.get('EventName'));
           photoHTML += "<tr> <td>"+ formattedDate +"</td> " +
                        " <td>"+ photoName +"</td> " +
-                       " <td><a style='color:black' href='#' data-photourl="+ PhotoURL +" data-photo="+ object.id +" class='viewimage'</a><i style='color:green' class='edit fa fa-eye'></i> View</td> "
+                       " <td><a style='color:black' href='#' data-caption='"+ photoCaption +"' data-photourl="+ PhotoURL +" data-photo="+ object.id +" class='viewimage'</a><i style='color:green' class='edit fa fa-eye'></i> View</td> "
 
         }
 
@@ -392,24 +558,48 @@ $("#photoTableBody").delegate(".viewimage","click",function(e){
   e.preventDefault();
   var image = $(this).attr('data-photo');
   var imageURL = $(this).attr('data-photourl');
+  var caption = $(this).attr('data-caption');
   $('#imgsrc2').attr('src', imageURL);
   $("#btnDeleteImage").attr('data-img',image);
   $("#btnUpdateImage").attr('data-img',image);
   $("#btnDeleteImage").attr('data-photourl',imageURL);
   $("#btnUpdateImage").attr('data-photourl',imageURL);
+
+  $("#NewphotoCaption").val(caption);
 })
 
 $("#btnDeleteImage").click(function(){
   var image = $(this).attr('data-img');
-
+  var Photo = Parse.Object.extend("Photos");
+  var photos = new Photo();
+  photos.id = image;
+  photos.save(null, {
+    success: function(event) {
+      event.set("isDeleted", true);
+      event.save();
+      swal("Deleted!", "Successfully deleted the photo.", "success");
+      loadAllImages();
+    }
+  });
 })
 
 $("#btnUpdateImage").click(function(){
   var image = $(this).attr('data-img');
-  var imageurl = $(this).attr('data-photourl')
-  var splitstring = imageurl.substring(imageurl.lastIndexOf("/")+1);
-  deleteFile(splitstring);
+  var Photo = Parse.Object.extend("Photos");
+  var photos = new Photo();
+  photos.id = image;
+  photos.save(null, {
+    success: function(event) {
+      event.set("Caption", $("#NewphotoCaption").val());
+      event.save();
+      swal("Saved!", "Successfully updated the photo.", "success");
+      loadAllImages();
+
+    }
+  });
 })
+
+
 
 $("#eventTableBody").delegate(".editpost","click",function(){
   var post = $(this).attr('data-event');
@@ -496,8 +686,7 @@ $("#btnEditEvent").click(function(){
     event.id = postToUpdate;
     event.save(null, {
       success: function(event) {
-      // Now let's update it with some new data. In this case, only cheatMode and score
-      // will get sent to the cloud. playerName hasn't changed.
+
         event.set("EventName", $("#eventName_edit").val());
         event.set("eventVenue", $("#eventVenue_edit").val());
         event.set("eventAddress", $("#eventAddress_edit").val());
@@ -512,14 +701,3 @@ $("#btnEditEvent").click(function(){
     });
 
 })
-
-function deleteFile(img){
-
-  Parse.Cloud.run('removeFile', { image: img }, {
-  success: function(result) {
-    // ratings should be 4.5
-  },
-  error: function(error) {
-  }
-});
-}

@@ -8,6 +8,7 @@
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons"  type="text/css" rel="stylesheet" media="screen,projection">
   <link  href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection">
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.7/slick.css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" type="text/css" rel="stylesheet">
   <link href="css/orinoco.css" type="text/css" rel="stylesheet" media="screen,projection">
 
   <script src="https://use.typekit.net/xco3jnl.js"></script>
@@ -32,7 +33,7 @@
          <img  height="140px" style="margin-right:30px" src="https://lh3.googleusercontent.com/e9tScfJK9NufWuzSEw-SmIxeUZE4T9LX1g51EvYB_vepOQ7GdxOuJw6F0FGnHXynzKogouNMTS0upmAdfa5Y0hKSOZg5zdhfSE2mi7koRfi2tEaSFxlmxZ507wv3NsnqtNOsbm_dTml0jFcCPDT1D1sSNLX6C7ffmrIas2kSbH5gzg3yBT3-EbMOR7WRmyyhP8eVvSR7Y698jTu9gs1uBDkLJZ3ZP9cjIVUNMNsmyncvFWDDp6CTT34ZahkGUjtxT7P-2oINyeUVf-Ta-BKUtXyVETXLQl6C2jXiyJJh-Urk5Dh1pgkykRRSDB8F3egUC1ZmKGM_suiI4hAVH7tbIsmgnyKqAXn12pHOK2ht2GFIoDMFfOorNaH3HLjQ0kpT1dkUpw0KEv7Qpkuyb7OII8DR9-O31gs8GtkKnZBW_Ze7KFOlgsVnAiYPeG53eyqa-P6VXp9Jq7sgE7VIUoj-ymb6yozB0wblDTQguVMZq64jjfSr1ZjDRuFnQCwY6pZSVzrPWr8IOY5wX-0LZ-MvkDLL7v_XoKaRPOF58bGYF_M=w621-h276-no">
      </a>
      <a href="#" class="brand-logo left hide-on-small-only" style='padding-top:20px;margin-left:80px'>
-       <h5 style="font-family:'freight-big-pro';margin:0px;font-style:italic;color:#b0813d">News Post</h5>
+       <h5 style="font-family:'freight-big-pro';margin:0px;font-style:italic;color:#b0813d">Manage Shops</h5>
      </a>
 
      <a href="#" class="brand-logo center hide-on-med-and-up">
@@ -65,28 +66,135 @@
 
             <div class="col s12" style="padding:0px;background-color:white;">
                 <div class="row" style="padding-top:30px" >
-                  <div class="input-field col l8 offset-l2 s12">
-                    <input placeholder="Please specify a title for your news post." id="postTitle" type="text" class="validate">
-                    <label for="first_name">Post Title</label>
+
+                  <div id="section_AddNewShop">
+                    <div class="input-field col l8 offset-l2 s12">
+                        <select id="ddlNewShopState">
+                          <option value="" disabled selected>Select shop state</option>
+                          <option value="AL">Alabama</option>
+	                        <option value="AK">Alaska</option>
+	                        <option value="AZ">Arizona</option>
+	                        <option value="AR">Arkansas</option>
+	                        <option value="CA">California</option>
+	                        <option value="CO">Colorado</option>
+	<option value="CT">Connecticut</option>
+	<option value="DE">Delaware</option>
+	<option value="DC">District Of Columbia</option>
+	<option value="FL">Florida</option>
+	<option value="GA">Georgia</option>
+	<option value="HI">Hawaii</option>
+	<option value="ID">Idaho</option>
+	<option value="IL">Illinois</option>
+	<option value="IN">Indiana</option>
+	<option value="IA">Iowa</option>
+	<option value="KS">Kansas</option>
+	<option value="KY">Kentucky</option>
+	<option value="LA">Louisiana</option>
+	<option value="ME">Maine</option>
+	<option value="MD">Maryland</option>
+	<option value="MA">Massachusetts</option>
+	<option value="MI">Michigan</option>
+	<option value="MN">Minnesota</option>
+	<option value="MS">Mississippi</option>
+	<option value="MO">Missouri</option>
+	<option value="MT">Montana</option>
+	<option value="NE">Nebraska</option>
+	<option value="NV">Nevada</option>
+	<option value="NH">New Hampshire</option>
+	<option value="NJ">New Jersey</option>
+	<option value="NM">New Mexico</option>
+	<option value="NY">New York</option>
+	<option value="NC">North Carolina</option>
+	<option value="ND">North Dakota</option>
+	<option value="OH">Ohio</option>
+	<option value="OK">Oklahoma</option>
+	<option value="OR">Oregon</option>
+	<option value="PA">Pennsylvania</option>
+	<option value="RI">Rhode Island</option>
+	<option value="SC">South Carolina</option>
+	<option value="SD">South Dakota</option>
+	<option value="TN">Tennessee</option>
+	<option value="TX">Texas</option>
+	<option value="UT">Utah</option>
+	<option value="VT">Vermont</option>
+	<option value="VA">Virginia</option>
+	<option value="WA">Washington</option>
+	<option value="WV">West Virginia</option>
+	<option value="WI">Wisconsin</option>
+	<option value="WY">Wyoming</option>
+                        </select>
+                        <label>State</label>
+                      </div>
+                    <div class="input-field col l8 offset-l2 s12">
+                      <input placeholder="Please specify a name for the shop." id="shopName" type="text" class="validate">
+                      <label for="shopName">Shop Name</label>
+                    </div>
+                    <div class="input-field col l8 offset-l2 s12">
+                      <input placeholder="Please set a phone number." id="shopPhone" type="text" class="validate">
+                      <label for="shopPhone">Phone Number</label>
+                    </div>
+                    <div class="input-field col l8 offset-l2 s12">
+                      <input placeholder="Shop street address." id="shopAddress" type="text" class="validate">
+                      <label for="shopPhone">Shop Address</label>
+                    </div>
+                    <div class="col l8 offset-l2">
+                      <a id="btnBackToAllShops" class="btn black">Cancel</a>
+                      <a id="btnAddNewShop" class="btn green darken-4">Save Shop</a>
+                    </div>
                   </div>
-                  <div class="col l8 offset-l2">
-                    <!-- toolbar with suitable buttons and dialogues -->
-                    <div id="toolbar" style="margin-top:10px">
-                      <a class="btn" style="background-color:#eeeeee;color:black" data-wysihtml5-command="bold"><i class="fa fa-bold center"></i></a>
-                      <a class="btn" style="background-color:#eeeeee;color:black" data-wysihtml5-command="italic"><i class="fa fa-italic center"></i></a>
-                      <a class="btn" style="background-color:#eeeeee;color:black" data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="p"><i class="fa fa-paragraph center"></i></a>
-                      <a class="btn" style="background-color:#eeeeee;color:black" data-wysihtml5-command="insertOrderedList"><i class="fa fa-list-ol center"></i></a>
 
-                      <a class="btn" style="background-color:#eeeeee;color:black" data-wysihtml5-command="underline"><i class="fa fa-underline center"></i></a>
+                  <div id="section_ManageAllShops">
 
+                    <div class="col l8 offset-l2">
+                      <table>
+                        <thead>
+                          <tr>
+                              <th data-field="Name">Name</th>
+                              <th data-field="State">State</th>
+                              <th data-field="Phone">Phone</th>
+                              <th data-field="Address">Address</th>
+                              <th data-field="edit"></th>
+                          </tr>
+                        </thead>
+
+                        <tbody id="shopTableBody">
+
+
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="col l8 offset-l2">
+                      <a id="btnGoAddNewShop" class="btn green darken-4">Add New</a>
                     </div>
 
-                    <!-- element to edit -->
-                    <div id="editor" style="border:1px solid #EEEEEE;padding:10px;margin-top:25px;min-height:300px" data-placeholder="Click here to edit..."></div>
-                    <br>
-                    <a id="btnSavePost" class="btn green darken-4">Update & Save</a>
-
                   </div>
+
+
+                  <div id="section_EditShop">
+
+
+                    <div class="input-field col l8 offset-l2 s12">
+                      <input placeholder="Please specify a name for the shop." id="EditshopName" type="text" class="validate">
+                      <label for="shopName">Shop Name</label>
+                    </div>
+                    <div class="input-field col l8 offset-l2 s12">
+                      <input placeholder="Please set a phone number." id="EditshopPhone" type="text" class="validate">
+                      <label for="shopPhone">Phone Number</label>
+                    </div>
+                    <div class="input-field col l8 offset-l2 s12">
+                      <input placeholder="Shop street address." id="EditshopAddress" type="text" class="validate">
+                      <label for="shopPhone">Shop Address</label>
+                    </div>
+                    <div class="col l8 offset-l2">
+                      <a id="btnGoBackToAllShops" class="btn black">Go Back</a>
+                      <a id="btnUpdateShop" class="btn green darken-4">Save </a>
+                        <a id="btnDeleteShop" class="btn red darken-4">Delete </a>
+                    </div>
+                  </div>
+
+
+
+
                 </div>
             </div>
 
@@ -175,6 +283,7 @@
    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.5.7/slick.min.js"></script>
    <script src="js/wysihtml-toolbar.min.js"></script>
    <script src="js/advanced_and_extended.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
    <script src="js/orinoco.js"></script>
    <script>
   var editor = new wysihtml5.Editor('editor', {
