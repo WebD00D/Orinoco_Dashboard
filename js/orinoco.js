@@ -77,6 +77,13 @@
   }); // end of document ready
 })(jQuery); // end of jQuery name space
 
+
+
+$(".signout").click(function(){
+  Parse.User.logOut();
+  window.location.href = "index.html";
+})
+
 $("#btnGoAddNewShop").click(function(){
   $("#section_ManageAllShops").hide();
   $("#section_AddNewShop").show();
