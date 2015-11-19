@@ -132,11 +132,11 @@ p {
 }
 
 .PhotosTile{
-  background: linear-gradient(rgba(4, 3, 3, 0.8), rgba(4, 3, 3, 0.8)), url(http://st.depositphotos.com/1814366/1503/i/950/depositphotos_15038481-Business-collage.jpg);
+  background: linear-gradient(rgba(4, 3, 3, 0.8), rgba(4, 3, 3, 0.8)), url(http://photography-cameras.org/images/stories/photography-beginner.jpg);
   background-size: cover;
 }
 .PhotosTile:hover{
-  background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url(http://st.depositphotos.com/1814366/1503/i/950/depositphotos_15038481-Business-collage.jpg);
+  background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url(http://photography-cameras.org/images/stories/photography-beginner.jpg);
   background-size: cover;
 }
 

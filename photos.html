@@ -287,7 +287,7 @@
              setTimeout(function(){ uploadImage(); }, 100); // Try to submit form after timeout
              return false;
            } else {
-             if (height === 400 && width === 400){
+             if (height != 400 && width != 400){
                var fileUploadControl = $("#imgInp")[0];
                if (fileUploadControl.files.length > 0) {
                  var file = fileUploadControl.files[0];
@@ -302,9 +302,8 @@
                    var photos = new Parse.Object("Photos");
                    photos.set("Caption", $("#photoCaption").val());
                    photos.set("Photo", parseFile);
+                   photos.set("isDeleted", false);
                    photos.save();
-
-
 
                    swal({
                      title: "Image successfully uploaded!",
