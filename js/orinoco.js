@@ -524,7 +524,7 @@ function loadAllImages(){
         // Do something with the returned Parse.Object values
         var photoHTML;
         for (var i = 0; i < results.length; i++) {
-          
+
           var object = results[i];
           var Photo = object.get("Photo");
           var PhotoURL = Photo.url();
@@ -657,7 +657,7 @@ $("#eventTableBody").delegate(".editpost","click",function(){
 })
 
 $("#eventTableBody").delegate(".deletepost","click",function(){
-
+var post = $(this).attr('data-event');
 
   swal({   title: "Are you sure?",
            text: "You will not be able to undo this action!",
